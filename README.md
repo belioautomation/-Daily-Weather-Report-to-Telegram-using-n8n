@@ -1,48 +1,63 @@
 # 🌤 Daily Weather Report to Telegram using n8n
 
-An automated workflow built with **n8n** that retrieves the latest weather information from the **Open-Meteo API** and sends a formatted daily weather report directly to **Telegram**.
+An automated **n8n workflow** that retrieves the latest weather information from the **Open-Meteo API** and sends a beautifully formatted daily weather report directly to a **Telegram chat**.
 
-This project demonstrates API integration, scheduled automation, data transformation, and Telegram bot notifications using only free services.
-
----
-
-## 📌 Overview
-
-This workflow automatically performs the following tasks:
-
-- Runs every day at a scheduled time.
-- Retrieves the latest weather data from the Open-Meteo API.
-- Extracts the current weather information.
-- Converts weather codes into readable weather conditions.
-- Sends a formatted weather report to Telegram.
+This project demonstrates how to build a fully automated workflow using free services without requiring an API key.
 
 ---
 
-## 🚀 Features
+# 📌 Project Overview
 
-- ⏰ Daily scheduled execution
-- 🌤 Real-time weather updates
-- 🌡 Displays temperature, humidity, wind speed, and weather conditions
-- 📲 Telegram notification
-- 🌐 Free Open-Meteo API
-- 🔑 No API key required
-- 💯 Fully automated
+This workflow automatically:
 
----
-
-## 🛠 Tech Stack
-
-- n8n
-- Open-Meteo API
-- HTTP Request
-- Code Node (JavaScript)
-- Telegram Bot API
+* ⏰ Runs on a scheduled time every day
+* 🌐 Retrieves real-time weather data from the Open-Meteo API
+* 🔄 Extracts and formats the required weather information
+* 🧠 Converts weather codes into human-readable conditions
+* 📲 Sends a formatted weather report to Telegram
 
 ---
 
-## 📂 Workflow
+# ✨ Features
 
-```text
+* Daily scheduled automation
+* Real-time weather information
+* Temperature reporting
+* Humidity reporting
+* Wind speed reporting
+* Weather condition translation
+* Telegram Bot integration
+* Free Open-Meteo API
+* No API key required
+* Fully automated workflow
+
+---
+
+# 🛠 Tech Stack
+
+* **n8n**
+* **Open-Meteo API**
+* **HTTP Request Node**
+* **Edit Fields (Set) Node**
+* **Code Node (JavaScript)**
+* **Telegram Bot API**
+
+---
+
+# 📂 Repository Structure
+
+```
+.
+├── Daily Weather Report to Telegram.json
+├── README.md
+└── workflow-image/
+```
+
+---
+
+# 🔄 Workflow
+
+```
 Schedule Trigger
         │
         ▼
@@ -52,7 +67,7 @@ HTTP Request
 Edit Fields (Set)
         │
         ▼
-Code
+Code (JavaScript)
         │
         ▼
 Telegram
@@ -60,23 +75,17 @@ Telegram
 
 ---
 
-## ⚙️ Workflow Explanation
+# ⚙️ Workflow Explanation
 
-### 1. Schedule Trigger
+## 1. Schedule Trigger
 
-Automatically runs the workflow every day at the configured time.
+Starts the workflow automatically at the configured schedule.
 
 ---
 
-### 2. HTTP Request
+## 2. HTTP Request
 
-Retrieves the latest weather information from the Open-Meteo API.
-
-**API Endpoint**
-
-```
-https://api.open-meteo.com/v1/forecast
-```
+Retrieves the latest weather data from the Open-Meteo API.
 
 **Method**
 
@@ -92,41 +101,43 @@ None
 
 ---
 
-### 3. Edit Fields (Set)
+## 3. Edit Fields (Set)
 
-Extracts only the required weather information from the API response, including:
+Extracts only the required fields from the API response:
 
-- Temperature
-- Relative Humidity
-- Wind Speed
-- Weather Code
-
----
-
-### 4. Code
-
-Converts the weather code into a human-readable weather condition.
-
-Examples:
-
-- ☀️ Clear Sky
-- 🌤 Mainly Clear
-- ⛅ Partly Cloudy
-- ☁️ Overcast
-- 🌧 Rain
-- ⛈ Thunderstorm
-
-It also formats the final weather report before sending it to Telegram.
+* Temperature
+* Relative Humidity
+* Wind Speed
+* Weather Code
 
 ---
 
-### 5. Telegram
+## 4. Code Node
 
-Sends the formatted weather report directly to your Telegram account.
+Transforms weather codes into readable weather descriptions.
+
+Examples include:
+
+| Weather Code | Description   |
+| ------------ | ------------- |
+| ☀️           | Clear Sky     |
+| 🌤           | Mainly Clear  |
+| ⛅            | Partly Cloudy |
+| ☁️           | Overcast      |
+| 🌧           | Rain          |
+| ⛈            | Thunderstorm  |
+
+The node also formats the final Telegram message.
 
 ---
 
-## 📱 Example Output
+## 5. Telegram
+
+Delivers the formatted weather report directly to your Telegram chat.
+
+---
+
+# 📱 Example Output
 
 ```
 🌤 Daily Weather Report
@@ -145,97 +156,94 @@ Have a wonderful day!
 
 ---
 
-## 📁 Project Structure
+# 📸 Workflow Screenshot
 
-```
-Daily-Weather-Report/
-│
-├── README.md
-├── workflow.json
-└── screenshots/
-    ├── workflow.png
-    ├── workflow-execution.png
-    └── telegram-output.png
-```
+The repository includes a screenshot of the workflow inside the **workflow-image** folder.
 
 ---
 
-## 📸 Screenshots
+# 💡 Use Cases
 
-Include the following screenshots:
-
-- Workflow Editor
-- Successful Workflow Execution
-- Telegram Output
-
-Example:
-
-```
-screenshots/
-    workflow.png
-    workflow-execution.png
-    telegram-output.png
-```
+* Daily weather updates
+* Morning notifications
+* Travel planning
+* Outdoor activity planning
+* Learning API integration
+* Learning workflow automation with n8n
+* Portfolio project
 
 ---
 
-## 💡 Use Cases
+# 📈 Future Improvements
 
-- Daily weather monitoring
-- Morning weather updates
-- Travel planning
-- Outdoor activity planning
-- Learning API integration with n8n
-- Portfolio automation project
-
----
-
-## 🔮 Future Improvements
-
-- Support multiple locations
-- 7-day weather forecast
-- Rain and storm alerts
-- Save weather history to Google Sheets
-- Send weather reports via Email or Discord
-- Generate AI-powered weather summaries
-- Add weather charts and graphs
+* Support multiple cities
+* 7-day weather forecast
+* Rain and storm alerts
+* Google Sheets weather history
+* Email notifications
+* Discord notifications
+* AI-generated weather summaries
+* Weather charts and analytics
 
 ---
 
-## 📚 What I Learned
+# 📚 What I Learned
 
-This project helped me gain hands-on experience with:
+Building this project improved my understanding of:
 
-- Workflow automation using n8n
-- REST API integration
-- HTTP Request node
-- JSON parsing
-- Data transformation
-- JavaScript Code node
-- Telegram Bot integration
-- Scheduled workflows
-
----
-
-## 🏷 Skills Demonstrated
-
-- n8n
-- Workflow Automation
-- REST API
-- HTTP Request
-- JSON Parsing
-- JavaScript
-- Data Transformation
-- Telegram Bot API
-- Scheduled Automation
-- No-Code / Low-Code Development
+* Workflow Automation
+* n8n Fundamentals
+* REST API Integration
+* HTTP Requests
+* JSON Data Processing
+* JavaScript in n8n
+* Telegram Bot Integration
+* Scheduled Automations
+* Data Transformation
 
 ---
 
-## 📄 License
+# 🏷 Skills Demonstrated
 
-This project is licensed under the MIT License.
+* n8n
+* Workflow Automation
+* REST APIs
+* HTTP Request
+* JavaScript
+* JSON Parsing
+* Data Transformation
+* Telegram Bot API
+* API Integration
+* No-Code / Low-Code Development
 
 ---
 
-⭐ If you found this project helpful, consider giving it a star!
+# 🚀 Getting Started
+
+## Prerequisites
+
+* n8n installed locally or self-hosted
+* Telegram Bot Token
+* Telegram Chat ID
+
+## Import Workflow
+
+1. Download **Daily Weather Report to Telegram.json**
+2. Open n8n.
+3. Click **Import Workflow**.
+4. Configure your Telegram credentials.
+5. Activate the workflow.
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star** on GitHub.
+
+It helps others discover the project and supports my learning journey in workflow automation.
